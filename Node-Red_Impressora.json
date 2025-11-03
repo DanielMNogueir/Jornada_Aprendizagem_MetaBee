@@ -1,0 +1,617 @@
+[
+    {
+        "id": "tab_monitor_3d_001",
+        "type": "tab",
+        "label": "Monitor 3D Printer - Externo",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "b1d9a2e2f8b3b1a1",
+        "type": "tab",
+        "label": "Dashboard Impressora 3D",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "mqtt_broker",
+        "type": "mqtt-broker",
+        "name": "Broker Local",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "dashboard_tab",
+        "type": "ui_tab",
+        "name": "Sensor HC-SR04",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "dashboard_group",
+        "type": "ui_group",
+        "name": "HC-SR04 Dashboard",
+        "tab": "dashboard_tab",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "41e986fb1066291b",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#610000",
+                "baseFont": "Tahoma,Geneva,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#097479",
+                    "value": "#610000",
+                    "edited": true
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#610000",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#ad0000",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#610000",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "Tahoma,Geneva,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "STATUS IMPRESSORA",
+            "hideToolbar": "false",
+            "allowSwipe": "true",
+            "lockMenu": "icon",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 100,
+                "sy": 100,
+                "gx": 10,
+                "gy": 10,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "broker-mosquitto",
+        "type": "mqtt-broker",
+        "name": "Mosquitto Local",
+        "broker": "127.0.0.1",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "tab-dashboard",
+        "type": "ui_tab",
+        "name": "Dashboard HC-SR04",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "group-sensor",
+        "type": "ui_group",
+        "name": "Sensor HC-SR04",
+        "tab": "tab-dashboard",
+        "order": 1,
+        "disp": true,
+        "width": 12,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "i9f3g12345678900",
+        "type": "ui_tab",
+        "name": "Dashboard HC-SR04",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "h8e2f12345678900",
+        "type": "ui_group",
+        "name": "Sensor HC-SR04",
+        "tab": "i9f3g12345678900",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "ui_tab_main",
+        "type": "ui_tab",
+        "name": "Dashboard HC-SR04",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "ws_conf",
+        "type": "websocket-listener",
+        "path": "/ws/impressora",
+        "wholemsg": "false"
+    },
+    {
+        "id": "ui_group_sensor",
+        "type": "ui_group",
+        "name": "Sensor HC-SR04",
+        "tab": "ui_tab_main",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "c67f1ad3f7b3d981",
+        "type": "websocket-listener",
+        "path": "/ws/impressora",
+        "wholemsg": "true"
+    },
+    {
+        "id": "a1b2c3d4e5f6g7h8",
+        "type": "websocket-listener",
+        "path": "/ws/printStatus",
+        "wholemsg": "false"
+    },
+    {
+        "id": "wsServer1",
+        "type": "websocket-listener",
+        "path": "/ws/printStatus",
+        "wholemsg": "false"
+    },
+    {
+        "id": "inject_test_15",
+        "type": "inject",
+        "z": "tab_monitor_3d_001",
+        "name": "Testar 15.5 cm",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "topic": "",
+        "payload": "15.5",
+        "payloadType": "num",
+        "x": 160,
+        "y": 80,
+        "wires": [
+            [
+                "fn_processa"
+            ]
+        ]
+    },
+    {
+        "id": "inject_test_2",
+        "type": "inject",
+        "z": "tab_monitor_3d_001",
+        "name": "Testar 5 cm",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "topic": "",
+        "payload": "5",
+        "payloadType": "num",
+        "x": 160,
+        "y": 180,
+        "wires": [
+            [
+                "fn_processa"
+            ]
+        ]
+    },
+    {
+        "id": "fn_processa",
+        "type": "function",
+        "z": "tab_monitor_3d_001",
+        "name": "Processar Dados (sensor → estado)",
+        "func": "// msg.payload contém a distância (em cm)\nlet distancia = Number(msg.payload);\nif (isNaN(distancia)) return null;\n\n// Ajuste o limite conforme sua impressora\nlet limiteParado = 10; // < 10cm => parada (ajuste conforme necessário)\nlet status = (distancia < limiteParado) ? \"Impressora parada\" : \"Impressora funcionando\";\n\n// Salva globalmente para endpoint HTTP\nglobal.set(\"distancia\", distancia);\nglobal.set(\"status\", status);\nglobal.set(\"ultimaAtualizacao\", new Date().toISOString());\n\n// Saída 1 -> Gauge (valor numérico)\nlet out1 = { payload: distancia };\n// Saída 2 -> ui_text (texto de status)\nlet out2 = { payload: status };\n// Saída 3 -> WebSocket broadcast (obj com dados)\nlet out3 = { payload: JSON.stringify({ distancia: distancia, status: status, timestamp: new Date().toISOString() }) };\n// Saída 4 -> Mensagem para o filtro de mudanças (Status simples)\nlet out4 = { payload: status };\n\nreturn [out1, out2, out3, out4];",
+        "outputs": 4,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 420,
+        "y": 140,
+        "wires": [
+            [
+                "ui_gauge_dist"
+            ],
+            [
+                "ui_text_status"
+            ],
+            [
+                "ws_out_impressora"
+            ],
+            [
+                "fn_filtrar_mudanca"
+            ]
+        ]
+    },
+    {
+        "id": "ui_gauge_dist",
+        "type": "ui_gauge",
+        "z": "tab_monitor_3d_001",
+        "name": "Distância HC-SR04",
+        "group": "ui_group_sensor",
+        "order": 1,
+        "width": 6,
+        "height": 4,
+        "gtype": "gage",
+        "title": "Sensor HC-SR04",
+        "label": "cm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "200",
+        "colors": [
+            "#ff0000",
+            "#e6e600",
+            "#00ff00"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 680,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "ui_text_status",
+        "type": "ui_text",
+        "z": "tab_monitor_3d_001",
+        "group": "ui_group_sensor",
+        "order": 2,
+        "width": 6,
+        "height": 1,
+        "name": "Status Sensor",
+        "label": "Status:",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 680,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "ws_out_impressora",
+        "type": "websocket out",
+        "z": "tab_monitor_3d_001",
+        "name": "WS /ws/impressora",
+        "server": "ws_conf",
+        "client": "",
+        "x": 710,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "fn_filtrar_mudanca",
+        "type": "function",
+        "z": "tab_monitor_3d_001",
+        "name": "Filtrar mudança (só enviar se diferente)",
+        "func": "// msg.payload é o status atual\nlet novoStatus = String(msg.payload || \"\");\nlet ultimoStatus = global.get(\"ultimoStatus\") || \"\";\n\nif (novoStatus !== ultimoStatus) {\n    global.set(\"ultimoStatus\", novoStatus);\n    // encaminha para enviar ao Discord\n    return msg;\n} else {\n    // ignora\n    return null;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 660,
+        "y": 280,
+        "wires": [
+            [
+                "fn_prepare_discord"
+            ]
+        ]
+    },
+    {
+        "id": "fn_prepare_discord",
+        "type": "function",
+        "z": "tab_monitor_3d_001",
+        "name": "Preparar payload Discord",
+        "func": "// prepara o JSON que o webhook do Discord aceita\nlet status = String(msg.payload || \"\");\nlet distancia = global.get(\"distancia\") || null;\nlet data = {\n    username: \"Monitor 3D Printer\",\n    embeds: [\n        {\n            title: \"Status da Impressora 3D\",\n            description: `**${status}**\\nDistância: ${distancia !== null ? distancia+\" cm\" : \"N/A\"}`,\n            color: status.includes(\"funcionando\") ? 3066993 : 15158332,\n            timestamp: new Date().toISOString()\n        }\n    ]\n};\n\nmsg.payload = data;\nmsg.headers = { \"Content-Type\": \"application/json\" };\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 940,
+        "y": 280,
+        "wires": [
+            [
+                "http_request_discord"
+            ]
+        ]
+    },
+    {
+        "id": "http_request_discord",
+        "type": "http request",
+        "z": "tab_monitor_3d_001",
+        "name": "Enviar Discord (HTTP Request)",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://discord.com/api/webhooks/1429985698643185776/S91f-Otnac_rS1ATzkQfFLxfHlJb2cN83y_l4EmTC44VlJ16eC_1Sm41WC6WgM8Zkjzn",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 1190,
+        "y": 280,
+        "wires": [
+            [
+                "debug_discord_resp"
+            ]
+        ]
+    },
+    {
+        "id": "debug_discord_resp",
+        "type": "debug",
+        "z": "tab_monitor_3d_001",
+        "name": "Debug Discord Resp",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 1410,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "http_in_status",
+        "type": "http in",
+        "z": "tab_monitor_3d_001",
+        "name": "GET /status-impressora",
+        "url": "/status-impressora",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 160,
+        "y": 360,
+        "wires": [
+            [
+                "fn_http_status"
+            ]
+        ]
+    },
+    {
+        "id": "fn_http_status",
+        "type": "function",
+        "z": "tab_monitor_3d_001",
+        "name": "Responder status atual",
+        "func": "let distancia = global.get(\"distancia\") || null;\nlet status = global.get(\"status\") || \"Desconhecido\";\nlet ultima = global.get(\"ultimaAtualizacao\") || null;\n\nmsg.payload = { distancia: distancia, status: status, ultimaAtualizacao: ultima };\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 420,
+        "y": 360,
+        "wires": [
+            [
+                "http_resp_status"
+            ]
+        ]
+    },
+    {
+        "id": "http_resp_status",
+        "type": "http response",
+        "z": "tab_monitor_3d_001",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 660,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "debug_flow",
+        "type": "debug",
+        "z": "tab_monitor_3d_001",
+        "name": "Debug Distância (raw)",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 420,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "826d9b8cfda2c4e2",
+        "type": "mqtt in",
+        "z": "tab_monitor_3d_001",
+        "name": "Receber Distância",
+        "topic": "sensor/hcsr04",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "broker-mosquitto",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 120,
+        "wires": [
+            [
+                "fn_processa"
+            ]
+        ]
+    },
+    {
+        "id": "inject5",
+        "type": "inject",
+        "z": "b1d9a2e2f8b3b1a1",
+        "name": "Distância 5 cm",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "payload": "5",
+        "payloadType": "num",
+        "x": 170,
+        "y": 120,
+        "wires": [
+            [
+                "function1"
+            ]
+        ]
+    },
+    {
+        "id": "inject15",
+        "type": "inject",
+        "z": "b1d9a2e2f8b3b1a1",
+        "name": "Distância 15.5 cm",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "payload": "15.5",
+        "payloadType": "num",
+        "x": 180,
+        "y": 170,
+        "wires": [
+            [
+                "function1"
+            ]
+        ]
+    },
+    {
+        "id": "function1",
+        "type": "function",
+        "z": "b1d9a2e2f8b3b1a1",
+        "name": "Formatar JSON",
+        "func": "let distancia = msg.payload;\n\nmsg.payload = JSON.stringify({\n    distancia: distancia,\n    status: distancia <= 5 ? \"Parada\" : \"Imprimindo\"\n});\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 410,
+        "y": 145,
+        "wires": [
+            [
+                "wsout1"
+            ]
+        ]
+    },
+    {
+        "id": "wsout1",
+        "type": "websocket out",
+        "z": "b1d9a2e2f8b3b1a1",
+        "name": "Enviar p/ Dashboard",
+        "server": "wsServer1",
+        "client": "",
+        "x": 690,
+        "y": 145,
+        "wires": []
+    },
+    {
+        "id": "040648f09d26f618",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6"
+        }
+    }
+]
