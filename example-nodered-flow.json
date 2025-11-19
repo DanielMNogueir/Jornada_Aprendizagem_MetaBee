@@ -1,0 +1,119 @@
+[
+  {
+    "id": "example-flow",
+    "type": "tab",
+    "label": "MetaBee Dashboard",
+    "disabled": false,
+    "info": "Flow para enviar dados das impressoras para o dashboard"
+  },
+  {
+    "id": "mqtt-in",
+    "type": "mqtt in",
+    "z": "example-flow",
+    "name": "ESP32 Sensors",
+    "topic": "metabee/+/distance",
+    "qos": "1",
+    "broker": "",
+    "x": 130,
+    "y": 100,
+    "wires": [["process-data"]]
+  },
+  {
+    "id": "process-data",
+    "type": "function",
+    "z": "example-flow",
+    "name": "Process Printer Data",
+    "func": "// Extrair ID da impressora do tópico MQTT\n// Formato: metabee/printer-1/distance\nconst topicParts = msg.topic.split('/');\nconst printerId = topicParts[1]; // 'printer-1', 'printer-2', etc.\n\n// Converter payload para número\nconst distance = parseFloat(msg.payload);\n\n// Determinar status baseado na distância\nlet status = 'offline';\nif (!isNaN(distance)) {\n  if (distance < 50) {\n    status = 'printing'; // Muito perto = imprimindo\n  } else if (distance < 300) {\n    status = 'online'; // Distância normal = livre\n  } else {\n    status = 'offline'; // Muito longe = sem sinal\n  }\n}\n\n// Formatar dados para o dashboard\nmsg.payload = {\n  [printerId]: {\n    status: status,\n    distance: isNaN(distance) ? null : distance,\n    timestamp: new Date().toISOString()\n  }\n};\n\nreturn msg;",
+    "outputs": 1,
+    "x": 350,
+    "y": 100,
+    "wires": [["websocket-out", "http-response"]]
+  },
+  {
+    "id": "websocket-out",
+    "type": "websocket out",
+    "z": "example-flow",
+    "name": "Dashboard WS",
+    "server": "",
+    "client": "",
+    "x": 600,
+    "y": 60,
+    "wires": []
+  },
+  {
+    "id": "http-in",
+    "type": "http in",
+    "z": "example-flow",
+    "name": "GET /api/printers",
+    "url": "/api/printers",
+    "method": "get",
+    "x": 140,
+    "y": 200,
+    "wires": [["get-all-printers"]]
+  },
+  {
+    "id": "get-all-printers",
+    "type": "function",
+    "z": "example-flow",
+    "name": "Get All Printers",
+    "func": "// Esta função deve buscar o estado atual de todas as impressoras\n// Por exemplo, de um context.global ou banco de dados\n// Por enquanto, retorna dados de exemplo\n\nconst printers = context.global.get('printers') || {};\n\nmsg.payload = printers;\nreturn msg;",
+    "outputs": 1,
+    "x": 350,
+    "y": 200,
+    "wires": [["http-response"]]
+  },
+  {
+    "id": "http-response",
+    "type": "http response",
+    "z": "example-flow",
+    "name": "",
+    "statusCode": "200",
+    "headers": {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*"
+    },
+    "x": 600,
+    "y": 160,
+    "wires": []
+  },
+  {
+    "id": "store-data",
+    "type": "function",
+    "z": "example-flow",
+    "name": "Store Printer Data",
+    "func": "// Armazenar dados no context global\nconst printerData = msg.payload;\nconst printerId = Object.keys(printerData)[0];\n\nlet printers = context.global.get('printers') || {};\nprinters[printerId] = printerData[printerId];\ncontext.global.set('printers', printers);\n\nreturn msg;",
+    "outputs": 1,
+    "x": 600,
+    "y": 100,
+    "wires": [[]]
+  },
+  {
+    "id": "webhook-discord",
+    "type": "http request",
+    "z": "example-flow",
+    "name": "Discord Webhook",
+    "method": "POST",
+    "ret": "obj",
+    "paytoqs": "ignore",
+    "url": "https://discord.com/api/webhooks/YOUR_WEBHOOK_URL",
+    "tls": "",
+    "persist": false,
+    "proxy": "",
+    "authType": "",
+    "x": 600,
+    "y": 240,
+    "wires": [["http-response"]]
+  },
+  {
+    "id": "discord-notify",
+    "type": "function",
+    "z": "example-flow",
+    "name": "Format Discord Message",
+    "func": "// Formatar mensagem para Discord\nconst printerData = msg.payload;\nconst printerId = Object.keys(printerData)[0];\nconst data = printerData[printerId];\n\nconst emoji = {\n  'online': '🟢',\n  'printing': '🟡',\n  'offline': '🔴'\n};\n\nmsg.payload = {\n  content: `${emoji[data.status]} **${printerId}** está **${data.status}**\\nDistância: ${data.distance}mm`\n};\n\nreturn msg;",
+    "outputs": 1,
+    "x": 400,
+    "y": 240,
+    "wires": [["webhook-discord"]]
+  }
+]
+
